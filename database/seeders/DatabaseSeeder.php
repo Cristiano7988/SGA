@@ -31,6 +31,10 @@ class DatabaseSeeder extends Seeder
             echo "Criando {$total_de_usuarios} Usuários... \n";
             Usuario::factory($total_de_usuarios)->create();
 
+            $total_de_enderecos = env('TOTAL_DE_ENDERECOS');
+            echo "Criando {$total_de_enderecos} Endereços... \n";
+            Usuario::factory($total_de_enderecos)->create();
+
             echo "Tudo pronto! \n";
         }
     }
