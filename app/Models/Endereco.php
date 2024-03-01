@@ -26,6 +26,11 @@ class Endereco extends Model
         'pais',
     ];
 
+    public function eventos()
+    {
+        return $this->hasMany(Evento::class);
+    }
+
     public function usuario()
     {
         return $this->belongsTo(Usuario::class);

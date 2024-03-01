@@ -23,4 +23,14 @@ class Evento extends Model
         'empresa_id',
         'usuario_id'
     ];
+
+    public function endereco()
+    {
+        return $this->belongsTo(Endereco::class);
+    }
+
+    public function usuario()
+    {
+        return $this->belongsTo(Usuario::class);
+    }
 }

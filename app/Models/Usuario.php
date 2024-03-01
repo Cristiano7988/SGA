@@ -57,6 +57,11 @@ class Usuario extends Authenticatable
         return $this->hasMany(Endereco::class);
     }
 
+    public function eventos()
+    {
+        return $this->hasMany(Evento::class);
+    }
+
     public function sexo()
     {
         return $this->belongsTo(Sexo::class);
