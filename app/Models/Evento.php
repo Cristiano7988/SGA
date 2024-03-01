@@ -24,7 +24,7 @@ class Evento extends Model
         'usuario_id'
     ];
 
-    public function convites()
+    public function convidados()
     {
         return $this->hasMany(Convite::class);
     }

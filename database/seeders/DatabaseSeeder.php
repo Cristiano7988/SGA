@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use \App\Models\{ Convidado, Convite, Dia, Endereco, Evento, Ponto, Usuario };
+use \App\Models\{ Convite, Dia, Endereco, Evento, Ponto, Usuario };
 
 class DatabaseSeeder extends Seeder
 {
@@ -55,9 +55,6 @@ class DatabaseSeeder extends Seeder
             echo "Criando {$total_de_convites} Convites... \n";
             Convite::factory($total_de_convites)->create();
             
-            $total_de_convidados = env('TOTAL_DE_CONVIDADOS');
-            echo "Criando {$total_de_convidados} Convidados... \n";
-            Convidado::factory($total_de_convidados)->create();
 
             echo "Tudo pronto! \n";
         }

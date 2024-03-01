@@ -15,17 +15,10 @@ class Convite extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'visualizado',
+        'vai_comparecer',
         'usuario_id',
+        'convidado_id',
         'evento_id'
     ];
-
-    public function usuario()
-    {
-        return $this->belongsTo(Usuario::class);
-    }
-
-    public function evento()
-    {
-        return $this->belongsTo(Evento::class);
-    }
 }

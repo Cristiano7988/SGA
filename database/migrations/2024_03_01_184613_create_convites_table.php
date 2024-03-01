@@ -13,12 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('convidados', function (Blueprint $table) {
+        Schema::create('convites', function (Blueprint $table) {
             $table->id();
-            $table->boolean('notificado')->default(true);
+            $table->boolean('visualizado')->default(true);
             $table->boolean('vai_comparecer')->default(false);
             $table->foreignId('usuario_id');
             $table->foreignId('convidado_id');
+            $table->foreignId('evento_id');
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('convidados');
+        Schema::dropIfExists('convites');
     }
 };

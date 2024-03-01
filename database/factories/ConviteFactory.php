@@ -16,9 +16,13 @@ class ConviteFactory extends Factory
      */
     public function definition()
     {
+        $id_usuario = Usuario::all()->random()->id;
         return [
-            'usuario_id' => Usuario::all()->random()->id,
-            'evento_id' => Evento::all()->random()->id
+            'visualizado' => rand(0, 1),
+            'vai_comparecer' => rand(0, 1),
+            'usuario_id' => $id_usuario,
+            'convidado_id' => Usuario::all()->where('id', '!=', $id_usuario)->random()->id,
+            'evento_id' => Evento::all()->random()->id,
         ];
     }
 }
