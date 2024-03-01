@@ -15,6 +15,7 @@ class Endereco extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'id_usuario',
         'logradouro',
         'numero',
         'complemento',
@@ -25,8 +26,8 @@ class Endereco extends Model
         'pais',
     ];
 
-    public function usuarios()
+    public function usuario()
     {
-        return $this->hasMany(Usuario::class);
+        return $this->belongsTo(Usuario::class);
     }
 }

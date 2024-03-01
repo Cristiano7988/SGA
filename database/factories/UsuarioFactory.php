@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use \App\Models\{ Endereco, Sexo };
+use \App\Models\{ Sexo };
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Usuario>
@@ -27,14 +27,13 @@ class UsuarioFactory extends Factory
             'nome_da_mae' => fake()->firstNameFemale() . $lastName,
             'rg' => fake()->rg(),
             'cpf' => fake()->cpf(),
-            'pis' => rand(100,999) . '.' . rand(10000,99999) . '.' . rand(10,99) . '-' . rand(0,10),
+            'pis' => rand(100,999) . '.' . rand(10000,99999) . '.' . rand(10,99) . '-' . rand(10,99),
             'telefone' => fake()->phoneNumber(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
             'sexo_id' => Sexo::all()->random()->id,
-            'endereco_id' => Endereco::all()->random()->id,
         ];
     }
 

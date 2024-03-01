@@ -31,7 +31,6 @@ class Usuario extends Authenticatable
         'password',
         'online',
         'sexo_id',
-        'endereco_id',
     ];
 
     /**
@@ -53,9 +52,9 @@ class Usuario extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function endereco()
+    public function enderecos()
     {
-        return $this->belongsTo(Endereco::class);
+        return $this->hasMany(Endereco::class);
     }
 
     public function sexo()

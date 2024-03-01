@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use \App\Models\{ Usuario };
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Endereco>
@@ -17,10 +18,11 @@ class EnderecoFactory extends Factory
     public function definition()
     {
         return [
+            'usuario_id' => Usuario::all()->random()->id,
             'logradouro' => fake()->streetName(),
             'numero' => fake()->buildingNumber(),
             'complemento' => fake()->buildingNumber(),
-            'cep' => fake()->cep(),
+            'cep' => 90 . rand(100,999) . '-' . rand(100,999),
             'bairro' => fake()->city(),
             'cidade' => fake()->city(),
             'estado' => fake()->state(),

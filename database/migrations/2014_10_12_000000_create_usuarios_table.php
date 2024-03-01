@@ -36,9 +36,6 @@ return new class extends Migration
             $table
                 ->foreignId('sexo_id')
                 ->default(1); // Não informado
-            $table
-                ->foreignId('endereco_id')
-                ->nullable(); 
         });
     }
 

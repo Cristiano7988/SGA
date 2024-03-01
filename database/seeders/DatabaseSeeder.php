@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use \App\Models\{ Usuario };
+use \App\Models\{ Endereco, Usuario };
 
 class DatabaseSeeder extends Seeder
 {
@@ -33,7 +33,7 @@ class DatabaseSeeder extends Seeder
 
             $total_de_enderecos = env('TOTAL_DE_ENDERECOS');
             echo "Criando {$total_de_enderecos} Endereços... \n";
-            Usuario::factory($total_de_enderecos)->create();
+            Endereco::factory($total_de_enderecos)->create();
 
             echo "Tudo pronto! \n";
         }

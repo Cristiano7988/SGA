@@ -23,6 +23,9 @@ return new class extends Migration
             $table->string('cidade')->nullable();
             $table->string('estado')->nullable();
             $table->string('pais')->nullable();
+            $table
+                ->foreignId('usuario_id')
+                ->nullable();
             $table->timestamps();
         });
     }
