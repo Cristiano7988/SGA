@@ -23,6 +23,10 @@ class DatabaseSeeder extends Seeder
                 return;
             }
 
+            $this->call([
+                SexoSeeder::class
+            ]);
+
             $total_de_usuarios = env('TOTAL_DE_USUARIOS');
             echo "Criando {$total_de_usuarios} Usuários... \n";
             Usuario::factory($total_de_usuarios)->create();
