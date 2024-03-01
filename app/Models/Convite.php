@@ -18,4 +18,14 @@ class Convite extends Model
         'usuario_id',
         'evento_id'
     ];
+
+    public function usuario()
+    {
+        return $this->belongsTo(Usuario::class);
+    }
+
+    public function evento()
+    {
+        return $this->belongsTo(Evento::class);
+    }
 }

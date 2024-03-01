@@ -52,6 +52,11 @@ class Usuario extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function convites()
+    {
+        return $this->hasMany(Convite::class);
+    }
+
     public function enderecos()
     {
         return $this->hasMany(Endereco::class);

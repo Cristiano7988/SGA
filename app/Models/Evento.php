@@ -24,6 +24,11 @@ class Evento extends Model
         'usuario_id'
     ];
 
+    public function convites()
+    {
+        return $this->hasMany(Convite::class);
+    }
+
     public function dia()
     {
         return $this->belongsTo(Dia::class);
