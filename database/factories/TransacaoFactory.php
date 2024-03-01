@@ -16,13 +16,20 @@ class TransacaoFactory extends Factory
      */
     public function definition()
     {
+        $eventos = 0;
+        while (!$eventos) {
+            $usuario = Usuario::all()->random();
+            $eventos = $usuario->pontos->pluck('evento_id')->count();
+        }
+
         $dias = rand(0, 7);
         $data = rand(0, 1) ? "+{$dias} days" : "-{$dias} days";
+        
         return [
             'data_do_pagamento' => date('Y-m-d H:m:i', strtotime($data)),
             'valor_pago' => rand(0, 100),
-            'usuario_id' => Usuario::all()->random()->id,
-            'evento_id' => Evento::all()->random()->id,
+            'usuario_id' => $usuario->id,
+            'evento_id' => $usuario->pontos->random()->evento_id,
             'forma_de_pagamento_id' => 1
         ];
     }

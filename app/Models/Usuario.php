@@ -77,6 +77,11 @@ class Usuario extends Authenticatable
         return $this->hasMany(Ponto::class);
     }
 
+    public function transacoes()
+    {
+        return $this->hasMany(Transacao::class);
+    }
+
     public function sexo()
     {
         return $this->belongsTo(Sexo::class);

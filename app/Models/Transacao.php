@@ -22,4 +22,14 @@ class Transacao extends Model
         'evento_id',
         'usuario_id'
     ];
+
+    public function evento()
+    {
+        return $this->belongsTo(Evento::class);
+    }
+
+    public function usuario()
+    {
+        return $this->belongsTo(Usuario::class);
+    }
 }

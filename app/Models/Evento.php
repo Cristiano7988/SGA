@@ -39,6 +39,16 @@ class Evento extends Model
         return $this->belongsTo(Endereco::class);
     }
 
+    public function pontos()
+    {
+        return $this->hasMany(Ponto::class);
+    }
+
+    public function transacoes()
+    {
+        return $this->hasMany(Transacao::class);
+    }
+
     public function usuario()
     {
         return $this->belongsTo(Usuario::class);
