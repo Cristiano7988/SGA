@@ -24,4 +24,9 @@ class Endereco extends Model
         'estado',
         'pais',
     ];
+
+    public function usuarios()
+    {
+        return $this->hasMany(Usuario::class);
+    }
 }
