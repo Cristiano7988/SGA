@@ -9,4 +9,9 @@ class Sexo extends Model
 {
     use HasFactory;
     protected $table = 'sexo';
+
+    public function usuarios()
+    {
+        return $this->hasMany(Usuario::class);
+    }
 }
