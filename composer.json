@@ -28,11 +28,19 @@
         }
     },
     "autoload-dev": {
+        "files": [
+            "app/dev-helpers.php"
+        ],
         "psr-4": {
             "Tests\\": "tests/"
         }
     },
     "scripts": {
+        "post-refresh-database": [
+            "php artisan migrate:rollback",
+            "php artisan migrate",
+            "php artisan db:seed"
+        ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"

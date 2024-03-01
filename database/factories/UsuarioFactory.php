@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Usuario>
  */
-class UserFactory extends Factory
+class UsuarioFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,9 +17,18 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        $lastName = ' ' . fake()->lastName();
         return [
-            'name' => $this->faker->name(),
-            'email' => $this->faker->unique()->safeEmail(),
+            'nome' => fake()->name(),
+            'data_de_nascimento' => fake()->datetimeBetween('- 70 years', '-14 years')->format('Y-m-d'),
+            'foto' => fake()->image(),
+            'nome_do_pai' => fake()->firstNameMale() . $lastName,
+            'nome_da_mae' => fake()->firstNameFemale() . $lastName,
+            'rg' => fake()->rg(),
+            'cpf' => fake()->cpf(),
+            'pis' => rand(100,999) . '.' . rand(10000,99999) . '.' . rand(10,99) . '-' . rand(0,10),
+            'telefone' => fake()->phoneNumber(),
+            'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
