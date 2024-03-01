@@ -19,4 +19,9 @@ class Dia extends Model
     protected $fillable = [
         'data'
     ];
+
+    public function eventos()
+    {
+        return $this->hasMany(Evento::class);
+    }
 }

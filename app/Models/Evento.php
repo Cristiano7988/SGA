@@ -24,6 +24,11 @@ class Evento extends Model
         'usuario_id'
     ];
 
+    public function dia()
+    {
+        return $this->belongsTo(Dia::class);
+    }
+
     public function endereco()
     {
         return $this->belongsTo(Endereco::class);
