@@ -24,4 +24,9 @@ class Ponto extends Model
         'usuario_id',
         'evento_id',
     ];
+
+    public function usuario()
+    {
+        return $this->belongsTo(Usuario::class);
+    }
 }
