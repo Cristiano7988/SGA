@@ -43,7 +43,7 @@ export default function UpdateProfileInformation({ mustVerifyEmail, status, clas
                         autoComplete="nome"
                     />
 
-                    <InputError className="mt-2" message={errors.name} />
+                    <InputError className="mt-2" message={errors.nome} />
                 </div>
 
                 <div>
