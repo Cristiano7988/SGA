@@ -22,9 +22,9 @@ return new class extends Migration
             $table->string('nome_do_pai')->nullable();
             $table->string('telefone')->nullable();
             // Documentos
-            $table->string('rg')->unique();
-            $table->string('cpf')->unique();
-            $table->string('pis')->unique();
+            $table->string('rg')->unique()->nullable();
+            $table->string('cpf')->unique()->nullable();
+            $table->string('pis')->unique()->nullable();
             // Acessos
             $table->string('email')->unique();
             $table->string('password');

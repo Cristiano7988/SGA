@@ -29,13 +29,28 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
-        $request->user()->fill($request->validated());
+        $user = $request->user();
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
+        if ($request->remover_foto && $user->foto) {
+            unlink(public_path('storage/fotos_dos_usuarios/'.$user->foto));
+
+            $user->update(['foto' => null]);
         }
 
-        $request->user()->save();
+        if ($request->hasFile('foto')) {
+            $fileName = $request->foto->getClientOriginalName();
+            $name = $request->foto->move(public_path('storage/fotos_dos_usuarios'), $fileName);
+
+            $user->update(['foto' => $fileName]);
+        }
+
+        $user->fill($request->validated());
+
+        if ($user->isDirty('email')) {
+            $user->email_verified_at = null;
+        }
+
+        $user->save();
 
         return Redirect::route('profile.edit');
     }
@@ -50,7 +65,8 @@ class ProfileController extends Controller
         ]);
 
         $user = $request->user();
-
+        
+        if ($user->foto) unlink(public_path('storage/fotos_dos_usuarios/' . $user->foto));
         Auth::logout();
 
         $user->delete();

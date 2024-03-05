@@ -22,7 +22,6 @@ class UsuarioFactory extends Factory
         return [
             'nome' => fake()->name(),
             'data_de_nascimento' => fake()->datetimeBetween('- 70 years', '-14 years')->format('Y-m-d'),
-            'foto' => fake()->image(),
             'nome_do_pai' => fake()->firstNameMale() . $lastName,
             'nome_da_mae' => fake()->firstNameFemale() . $lastName,
             'rg' => fake()->rg(),
